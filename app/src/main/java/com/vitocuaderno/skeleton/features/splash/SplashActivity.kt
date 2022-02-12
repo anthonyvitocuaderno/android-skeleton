@@ -42,16 +42,14 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
     }
 
     private fun launchMain() {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
+        val intent = Intent(this, MainActivity::class.java)
         this.startActivity(intent)
+        this.finishAffinity()
     }
 
     private fun launchOnboarding() {
-        val intent = Intent(this, MainActivity::class.java).apply {
-            addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
+        val intent = Intent(this, MainActivity::class.java)
         this.startActivity(intent)
+        this.finishAffinity()
     }
 }
