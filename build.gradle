@@ -9,9 +9,9 @@ buildscript {
     // Define versions in a single place
     ext {
         // Sdk and tools
-        compiledSdkVersion = 30
+        compiledSdkVersion = 31
         minSdkVersion = 26
-        targetSdkVersion = 30
+        targetSdkVersion = 31
 
         // Remote
         retrofitVersion = '2.9.0'
@@ -22,7 +22,7 @@ buildscript {
         roomVersion = '2.2.5'
 
         // Build tools
-        gradleVersion = '4.1.2'
+        gradleVersion = '4.2.0'
         kotlinVersion = '1.4.21'
         ktxVersion = '1.3.2'
         appCompatVersion = '1.2.0'
@@ -30,13 +30,13 @@ buildscript {
 
         // DI
         assistedInjectVersion = '0.5.2'
-        hiltVersion = '2.30.1-alpha'
+        hiltVersion = '2.40.5'
         hiltViewModelVersion = '1.0.0-alpha02'
-        hiltWorkVersion = '1.0.0-alpha02'
+        hiltWorkVersion = '1.0.0'
         daggerVersion = "2.35.1"
 
         // Work
-        workVersion = '2.5.0-beta02'
+        workVersion = '2.7.1'
 
         // Lifecycle
         coroutinesVersion = "1.4.2"

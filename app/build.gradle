@@ -9,6 +9,7 @@ android {
     buildFeatures {
         dataBinding true
     }
+
     defaultConfig {
         applicationId "com.vitocuaderno.skeleton"
         minSdkVersion rootProject.minSdkVersion
@@ -21,6 +22,7 @@ android {
         javaCompileOptions {
             annotationProcessorOptions {
                 arguments["dagger.hilt.disableModulesHaveInstallInCheck"] = "true"
+                arguments["room.incremental"] = "true"
             }
         }
 
@@ -63,7 +65,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hiltViewModelVersion"
     implementation "androidx.hilt:hilt-work:$hiltWorkVersion"
-    kapt "com.google.dagger:dagger-compiler:$daggerVersion"
+    kapt  "com.google.dagger:dagger-compiler:$daggerVersion"
     kapt "com.google.dagger:dagger-android-processor:$daggerVersion"
     api "com.google.dagger:dagger:$daggerVersion"
     api "com.google.dagger:dagger-android:2.35.1"

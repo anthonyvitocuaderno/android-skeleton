@@ -1,13 +1,13 @@
 package com.vitocuaderno.skeleton.workers
 import android.content.Context
-import androidx.hilt.Assisted
-import androidx.hilt.work.WorkerInject
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.vitocuaderno.skeleton.data.local.AppDatabase
+import dagger.assisted.Assisted
+import dagger.assisted.AssistedInject
 import kotlinx.coroutines.coroutineScope
 
-class SeedDatabaseWorker @WorkerInject constructor(
+class SeedDatabaseWorker @AssistedInject constructor(
     @Assisted context: Context,
     @Assisted workerParams: WorkerParameters
 ) : CoroutineWorker(context, workerParams) {
