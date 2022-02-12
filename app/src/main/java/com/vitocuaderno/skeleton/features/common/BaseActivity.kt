@@ -11,6 +11,7 @@ import androidx.databinding.ViewDataBinding
  * Automatically initializes ViewDataBinding class for your activity.
  */
 abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
+    abstract val viewModel: BaseViewModel
 
     lateinit var binding: B
 
@@ -27,5 +28,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
             getLayoutId()
         )
         binding.lifecycleOwner = this
+
+        viewModel.start()
     }
 }
