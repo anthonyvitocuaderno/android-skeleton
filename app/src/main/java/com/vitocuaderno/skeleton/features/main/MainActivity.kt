@@ -1,4 +1,4 @@
-package com.vitocuaderno.skeleton.features
+package com.vitocuaderno.skeleton.features.main
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
