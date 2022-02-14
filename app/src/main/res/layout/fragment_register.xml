@@ -5,9 +5,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".features.onboarding.login.LoginFragment">
+        tools:context=".features.onboarding.register.RegisterFragment">
         <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/layout_login_form"
+            android:id="@+id/layout_register_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -15,9 +15,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="32dp">
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/til_username"
                 android:layout_width="match_parent"
@@ -35,6 +32,8 @@
                 android:id="@+id/til_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:imeOptions="actionNext"
+                android:nextFocusDown="@id/til_confirm_password"
                 android:hint="Password">
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
@@ -42,11 +41,18 @@
                     android:inputType="textPassword"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <androidx.appcompat.widget.AppCompatButton
-                android:id="@+id/btn_login"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_confirm_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login" />
+                android:hint="Confirm Password">
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionDone" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_register"
                 android:layout_width="match_parent"

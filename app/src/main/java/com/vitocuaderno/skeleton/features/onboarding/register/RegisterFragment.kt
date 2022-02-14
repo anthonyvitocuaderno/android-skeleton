@@ -1,23 +1,23 @@
-package com.vitocuaderno.skeleton.features.onboarding.login
+package com.vitocuaderno.skeleton.features.onboarding.register
 
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView.OnEditorActionListener
+import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.vitocuaderno.skeleton.R
-import com.vitocuaderno.skeleton.databinding.FragmentLoginBinding
+import com.vitocuaderno.skeleton.databinding.FragmentRegisterBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
+import com.vitocuaderno.skeleton.features.onboarding.login.LoginFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginFragment : BaseFragment<FragmentLoginBinding>() {
-    override fun getLayoutId(): Int = R.layout.fragment_login
+class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
+    override fun getLayoutId(): Int = R.layout.fragment_register
 
-    override val viewModel: LoginViewModel by viewModels()
-
+    override val viewModel: RegisterViewModel by viewModels()
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -26,20 +26,14 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
 
         binding.apply {
-            btnLogin.setOnClickListener {
-                login()
-            }
-
             btnRegister.setOnClickListener {
-                findNavController().navigate(
-                    LoginFragmentDirections.actionLoginFragmentToRegisterFragment()
-                )
+                register()
             }
 
-            tilPassword.editText!!.setOnEditorActionListener(
-                OnEditorActionListener { _, actionId, _ ->
+            tilConfirmPassword.editText!!.setOnEditorActionListener(
+                TextView.OnEditorActionListener { _, actionId, _ ->
                     if (actionId == EditorInfo.IME_ACTION_DONE) {
-                        login()
+                        register()
                         true
                     }
                     false
@@ -48,25 +42,26 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
     }
 
-    private fun login() {
-        viewModel.login(
+    private fun register() {
+        viewModel.register(
             binding.tilUsername.editText!!.text.toString(),
-            binding.tilPassword.editText!!.text.toString()
+            binding.tilPassword.editText!!.text.toString(),
+            binding.tilConfirmPassword.editText!!.text.toString()
         )
     }
 
-    private fun handleState(state: LoginState) {
+    private fun handleState(state: RegisterState) {
         when (state) {
-            is LoginState.Idle -> {
+            is RegisterState.Idle -> {
                 resetToIdle(state.username)
             }
-            LoginState.Busy -> {
+            RegisterState.Busy -> {
                 setBusy()
             }
-            LoginState.Success -> {
+            RegisterState.Success -> {
                 Toast.makeText(requireContext(), "SUCCESS!", Toast.LENGTH_SHORT).show()
             }
-            is LoginState.Failed -> {
+            is RegisterState.Failed -> {
                 Toast.makeText(requireContext(), "Failed! " + state.message, Toast.LENGTH_SHORT).show()
             }
             else -> {
@@ -78,13 +73,14 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun resetToIdle(username: String) {
         binding.tilUsername.editText?.setText(username)
         binding.tilPassword.editText?.setText("")
-        binding.btnLogin.text = "Login"
+        binding.tilConfirmPassword.editText?.setText("")
+        binding.btnRegister.text = "Register"
 
         setUiEnabled(true)
     }
 
     private fun setBusy() {
-        binding.btnLogin.text = "Please wait..."
+        binding.btnRegister.text = "Please wait..."
 
         setUiEnabled(false)
     }
@@ -92,7 +88,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
     private fun setUiEnabled(isEnabled: Boolean) {
         binding.tilUsername.isEnabled = isEnabled
         binding.tilPassword.isEnabled = isEnabled
-        binding.btnLogin.isEnabled = isEnabled
+        binding.tilConfirmPassword.isEnabled = isEnabled
         binding.btnRegister.isEnabled = isEnabled
     }
 }

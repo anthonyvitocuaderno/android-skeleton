@@ -17,4 +17,9 @@ class AuthRepositoryImpl @Inject constructor(
         val response = apiService.login(username, password)
         response.token
     }
+
+    override fun registerAsync(username: String, password: String): Deferred<String> = GlobalScope.async {
+        val response = apiService.register(username, password)
+        response.token
+    }
 }

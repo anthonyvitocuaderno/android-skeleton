@@ -27,6 +27,13 @@ interface ApiService {
     }
 
     @FormUrlEncoded
+    @POST("api/register")
+    suspend fun register(
+        @Field("email") username: String,
+        @Field("password") password: String
+    ): Session
+
+    @FormUrlEncoded
     @POST("api/login")
     suspend fun login(
         @Field("email") username: String,

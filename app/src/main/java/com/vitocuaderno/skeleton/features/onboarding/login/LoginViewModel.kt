@@ -17,7 +17,7 @@ class LoginViewModel @Inject constructor(
     private val authRepository: AuthRepository
 ) : BaseViewModel() {
 
-    private val _state = MutableLiveData<LoginState>(LoginState.Idle(""))
+    private val _state = MutableLiveData<LoginState>(LoginState.Idle("eve.holt@reqres.in"))
     val state: LiveData<LoginState> = _state
 
     override fun start() {
