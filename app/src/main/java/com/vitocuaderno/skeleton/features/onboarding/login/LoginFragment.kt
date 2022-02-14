@@ -1,23 +1,24 @@
-package com.vitocuaderno.skeleton.features.onboarding
+package com.vitocuaderno.skeleton.features.onboarding.login
 
 import android.os.Bundle
+import android.view.View
 import android.widget.Toast
-import androidx.activity.viewModels
+import androidx.fragment.app.viewModels
 import com.vitocuaderno.skeleton.R
-import com.vitocuaderno.skeleton.databinding.ActivityLoginBinding
-import com.vitocuaderno.skeleton.features.common.BaseActivity
+import com.vitocuaderno.skeleton.databinding.FragmentLoginBinding
+import com.vitocuaderno.skeleton.features.common.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class LoginActivity : BaseActivity<ActivityLoginBinding>() {
-    override fun getLayoutId(): Int = R.layout.activity_login
+class LoginFragment : BaseFragment<FragmentLoginBinding>() {
+    override fun getLayoutId(): Int = R.layout.fragment_login
 
     override val viewModel: LoginViewModel by viewModels()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
-        viewModel.state.observe(this) {
+        viewModel.state.observe(viewLifecycleOwner) {
             handleState(it)
         }
 
@@ -40,10 +41,10 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>() {
                 setBusy()
             }
             LoginState.Success -> {
-                Toast.makeText(this, "SUCCESS!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "SUCCESS!", Toast.LENGTH_SHORT).show()
             }
             is LoginState.Failed -> {
-                Toast.makeText(this, "Failed! " + state.message, Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Failed! " + state.message, Toast.LENGTH_SHORT).show()
             }
             else -> {
                 // TODO

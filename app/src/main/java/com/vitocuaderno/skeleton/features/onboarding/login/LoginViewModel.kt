@@ -1,4 +1,4 @@
-package com.vitocuaderno.skeleton.features.onboarding
+package com.vitocuaderno.skeleton.features.onboarding.login
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -14,7 +14,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class LoginViewModel @Inject constructor(
-    val authRepository: AuthRepository
+    private val authRepository: AuthRepository
 ) : BaseViewModel() {
 
     private val _state = MutableLiveData<LoginState>(LoginState.Idle(""))

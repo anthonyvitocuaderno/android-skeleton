@@ -1,4 +1,4 @@
-package com.vitocuaderno.skeleton.features.onboarding
+package com.vitocuaderno.skeleton.features.onboarding.login
 
 sealed class LoginState {
     data class Idle(val username: String) : LoginState()
