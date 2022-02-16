@@ -78,6 +78,7 @@ dependencies {
     implementation "androidx.core:core-ktx:$ktxVersion"
     implementation "androidx.appcompat:appcompat:$appCompatVersion"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.preference:preference-ktx:1.2.0'
 
     // View
     implementation "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion"

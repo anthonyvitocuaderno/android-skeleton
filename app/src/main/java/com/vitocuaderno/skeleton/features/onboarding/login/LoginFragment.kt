@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.FragmentLoginBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
+import com.vitocuaderno.skeleton.features.onboarding.OnboardingActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -64,7 +65,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 setBusy()
             }
             LoginState.Success -> {
-                Toast.makeText(requireContext(), "SUCCESS!", Toast.LENGTH_SHORT).show()
+                (requireActivity() as OnboardingActivity).launchMain()
             }
             is LoginState.Failed -> {
                 Toast.makeText(requireContext(), "Failed! " + state.message, Toast.LENGTH_SHORT).show()

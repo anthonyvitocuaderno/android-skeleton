@@ -4,4 +4,5 @@ import com.google.gson.annotations.SerializedName
 
 class Session(
     @field:SerializedName("token") val token: String,
+    @field:SerializedName("id") val id: String,
 )

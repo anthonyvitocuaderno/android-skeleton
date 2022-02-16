@@ -1,6 +1,8 @@
 package com.vitocuaderno.skeleton.di
 
 import android.content.Context
+import android.content.SharedPreferences
+import androidx.preference.PreferenceManager
 import com.vitocuaderno.skeleton.data.local.AppDatabase
 import dagger.Module
 import dagger.Provides
@@ -17,5 +19,11 @@ class DatabaseModule {
     @Provides
     fun provideAppDatabase(@ApplicationContext context: Context): AppDatabase {
         return AppDatabase.getInstance(context)
+    }
+
+    @Provides
+    @Singleton
+    fun providesSharedPreferences(@ApplicationContext context: Context): SharedPreferences {
+        return PreferenceManager.getDefaultSharedPreferences(context)
     }
 }

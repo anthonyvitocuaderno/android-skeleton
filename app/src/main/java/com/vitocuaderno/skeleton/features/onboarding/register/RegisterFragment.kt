@@ -6,11 +6,9 @@ import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.FragmentRegisterBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
-import com.vitocuaderno.skeleton.features.onboarding.login.LoginFragmentDirections
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
