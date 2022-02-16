@@ -9,6 +9,7 @@ import androidx.fragment.app.viewModels
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.FragmentRegisterBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
+import com.vitocuaderno.skeleton.features.onboarding.OnboardingActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -57,7 +58,7 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                 setBusy()
             }
             RegisterState.Success -> {
-                Toast.makeText(requireContext(), "SUCCESS!", Toast.LENGTH_SHORT).show()
+                (requireActivity() as OnboardingActivity).launchMain()
             }
             is RegisterState.Failed -> {
                 Toast.makeText(requireContext(), "Failed! " + state.message, Toast.LENGTH_SHORT).show()
