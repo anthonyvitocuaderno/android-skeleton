@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "564627589758",
+    "project_id": "sample-kotlin-app-5f4d2",
+    "storage_bucket": "sample-kotlin-app-5f4d2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:564627589758:android:a3896d5b612b06e90a662f",
+        "android_client_info": {
+          "package_name": "com.vitocuaderno.skeleton"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "564627589758-p6ilutmsqhok84r1ism0evqqf75gdvh3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vitocuaderno.skeleton",
+            "certificate_hash": "2b9ca49ae63296cc3ca47f9c9b3f56925b5ea732"
+          }
+        },
+        {
+          "client_id": "564627589758-3plksa35h3kbq4lhfjac0jrkckrmcpsh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDWSh1FCCJfMXeX5qwwrGRMP37mEnguv-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "564627589758-3plksa35h3kbq4lhfjac0jrkckrmcpsh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

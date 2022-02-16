@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'dagger.hilt.android.plugin'
 apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'com.google.firebase.crashlytics'
 
 android {
     compileSdkVersion rootProject.compiledSdkVersion
@@ -71,6 +72,10 @@ dependencies {
     api "com.google.dagger:dagger-android:2.35.1"
     api "com.google.dagger:dagger-android-support:$daggerVersion"
 
+    // Firebase
+    implementation platform('com.google.firebase:firebase-bom:29.1.0')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     // Build tools
     implementation fileTree(dir: "libs", include: ["*.jar"])
@@ -126,3 +131,5 @@ dependencies {
     testImplementation "org.mockito:mockito-inline:$mockitoVersion"
     androidTestImplementation "androidx.arch.core:core-testing:$coreTestingVersion"
 }
+
+apply plugin: 'com.google.gms.google-services'
