@@ -41,7 +41,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
         this.finishAffinity()
     }
 
-    protected  fun launchOnboarding() {
+    protected fun launchOnboarding() {
         val intent = Intent(this, OnboardingActivity::class.java)
         this.startActivity(intent)
         this.finishAffinity()

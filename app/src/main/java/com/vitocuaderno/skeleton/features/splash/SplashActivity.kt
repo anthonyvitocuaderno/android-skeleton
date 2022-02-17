@@ -1,7 +1,6 @@
 package com.vitocuaderno.skeleton.features.splash
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.viewModels
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.ActivitySplashBinding
@@ -35,7 +34,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>() {
                 }
             }
             else -> {
-                Toast.makeText(this, state.toString(), Toast.LENGTH_SHORT).show()
+//                Toast.makeText(this, state.toString(), Toast.LENGTH_SHORT).show()
             }
         }
     }

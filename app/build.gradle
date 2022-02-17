@@ -93,6 +93,7 @@ dependencies {
     implementation "androidx.recyclerview:recyclerview:$recyclerViewVersion"
     kapt "com.github.bumptech.glide:compiler:$glideVersion"
     implementation "com.github.bumptech.glide:glide:$glideVersion"
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
 
     // Room
     kapt "androidx.room:room-compiler:$roomVersion"
