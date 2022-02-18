@@ -22,7 +22,7 @@ class SplashViewModel @Inject constructor(
         super.start()
         viewModelScope.launch {
             delay(500)
-            _state.postValue(SplashState.IsLoggedIn(authRepository.getSessionAsync().await() != null))
+            _state.postValue(SplashState.IsLoggedIn(authRepository.getSession() != null))
         }
     }
 }

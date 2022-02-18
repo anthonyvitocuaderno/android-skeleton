@@ -36,10 +36,13 @@ class AuthRepositoryImpl @Inject constructor(
         session.token
     }
 
-    override fun getSessionAsync(): Deferred<SessionResponse?> = GlobalScope.async {
+    override fun getSession(): SessionResponse? {
+        /***
+         * Async for any server-side verification
+         */
         val id = sharedPreferences.getString(PREF_SESSION_ID, "")
         val token = sharedPreferences.getString(PREF_SESSION_TOKEN, "")
-        if (id.isNullOrEmpty() || token.isNullOrEmpty()) {
+        return if (id.isNullOrEmpty() || token.isNullOrEmpty()) {
             null
         } else {
             SessionResponse(token, id)
@@ -47,6 +50,7 @@ class AuthRepositoryImpl @Inject constructor(
     }
 
     override fun logoutAsync(): Deferred<Unit> = GlobalScope.async {
+        db.userDao().clear()
         clearSession()
     }
 

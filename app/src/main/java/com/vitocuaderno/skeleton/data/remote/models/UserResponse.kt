@@ -10,17 +10,15 @@ data class UserResponse(
     @field:SerializedName("last_name") val lastName: String,
     val avatar: String
 ) {
-    companion object {
-        fun toLocal(userResponse: UserResponse): User {
-            userResponse.apply {
-                return User(
-                    id,
-                    email,
-                    firstName,
-                    lastName,
-                    avatar
-                )
-            }
+    fun toLocal(): User {
+        this.apply {
+            return User(
+                id,
+                email,
+                firstName,
+                lastName,
+                avatar
+            )
         }
     }
 }

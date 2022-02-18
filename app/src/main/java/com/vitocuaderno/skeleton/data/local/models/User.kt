@@ -13,17 +13,15 @@ data class User(
     val lastName: String,
     val avatar: String
 ) {
-    companion object {
-        fun toRemote(user: User): UserResponse {
-            user.apply {
-                return UserResponse(
-                    id,
-                    email,
-                    firstName,
-                    lastName,
-                    avatar
-                )
-            }
+    fun toRemote(): UserResponse {
+        this.apply {
+            return UserResponse(
+                id,
+                email,
+                firstName,
+                lastName,
+                avatar
+            )
         }
     }
 }
