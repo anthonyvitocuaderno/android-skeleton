@@ -30,18 +30,18 @@ class UserRepositoryImpl @Inject constructor(
             authRepository.getSessionAsync().await()?.let {
                 var nextPage: Int? = 1
 //                while (nextPage != null) {
-                    val response = apiService.getUsers(
-                        page = nextPage!!,
-                        perPage = 10,
-                        token = it.token
-                    )
+                val response = apiService.getUsers(
+                    page = nextPage!!,
+                    perPage = 10,
+                    token = it.token
+                )
 
-                    response.data.map { userResponse ->
-                        db.userDao().insertAll(listOf(UserResponse.toLocal(userResponse)))
-                    }
-                    if (nextPage < response.totalPages) {
-                        nextPage = response.page + 1
-                    }
+                response.data.map { userResponse ->
+                    db.userDao().insertAll(listOf(UserResponse.toLocal(userResponse)))
+                }
+                if (nextPage < response.totalPages) {
+                    nextPage = response.page + 1
+                }
 //                }
             }
         }

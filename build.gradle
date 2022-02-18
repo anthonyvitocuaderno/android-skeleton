@@ -49,6 +49,7 @@ buildscript {
         navVersion = '2.3.3'
         constraintLayoutVersion = '2.0.4'
         glideVersion = '4.10.0'
+        circleImageViewVersion = "2.2.0"
 
         // Test
         junitVersion = '4.12'

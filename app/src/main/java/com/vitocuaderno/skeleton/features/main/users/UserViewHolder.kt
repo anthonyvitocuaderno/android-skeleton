@@ -9,10 +9,8 @@ class UserViewHolder(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(user: User) {
-        binding.apply {
-            tvEmail.text = user.firstName
-            executePendingBindings()
-        }
+        binding.user = user
+        binding.executePendingBindings()
     }
 }
 
