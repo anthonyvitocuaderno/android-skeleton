@@ -32,7 +32,8 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
             mainPagerAdapter = MainPagerAdapter(this@MainActivity)
             pager.adapter = mainPagerAdapter
             TabLayoutMediator(tabs, pager) { tab, position ->
-                tab.text = "TAB ${(position + 1)}"
+                mainPagerAdapter.getTitle(position)
+                tab.text = mainPagerAdapter.getTitle(position)
             }.attach()
         }
     }

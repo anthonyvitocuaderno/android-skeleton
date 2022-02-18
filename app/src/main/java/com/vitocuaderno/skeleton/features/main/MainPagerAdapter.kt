@@ -4,9 +4,31 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.vitocuaderno.skeleton.features.main.dummy.DummyFragment
+import com.vitocuaderno.skeleton.features.main.users.UsersFragment
 
 class MainPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
     override fun getItemCount(): Int = 5
 
-    override fun createFragment(position: Int): Fragment = DummyFragment()
+    private val titles = arrayOf<String>(
+        "Users",
+        "Dummy",
+        "Dummy",
+        "Dummy",
+        "Menu"
+    )
+
+    override fun createFragment(position: Int): Fragment {
+        val fragment = when (position) {
+            0 -> {
+                UsersFragment()
+            } else -> {
+                DummyFragment()
+            }
+        }
+        return fragment
+    }
+
+    fun getTitle(position: Int): String {
+        return titles[position]
+    }
 }

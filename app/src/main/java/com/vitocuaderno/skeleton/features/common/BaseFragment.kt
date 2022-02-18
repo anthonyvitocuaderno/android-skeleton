@@ -16,6 +16,8 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
 
     abstract val viewModel: BaseViewModel
 
+    abstract val title: String?
+
     @LayoutRes
     abstract fun getLayoutId(): Int
 

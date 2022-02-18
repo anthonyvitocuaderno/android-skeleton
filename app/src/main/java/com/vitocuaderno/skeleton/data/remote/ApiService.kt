@@ -1,16 +1,14 @@
 package com.vitocuaderno.skeleton.data.remote
 
-import com.vitocuaderno.skeleton.data.remote.models.Session
-import com.vitocuaderno.skeleton.data.remote.models.User
+import com.vitocuaderno.skeleton.data.remote.models.PageResponse
+import com.vitocuaderno.skeleton.data.remote.models.SessionResponse
+import com.vitocuaderno.skeleton.data.remote.models.UserResponse
 import com.vitocuaderno.skeleton.utils.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Field
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface ApiService {
 
@@ -40,17 +38,24 @@ interface ApiService {
     suspend fun register(
         @Field("email") username: String,
         @Field("password") password: String
-    ): Session
+    ): SessionResponse
 
     @FormUrlEncoded
     @POST("api/login")
     suspend fun login(
         @Field("email") username: String,
         @Field("password") password: String
-    ): Session
+    ): SessionResponse
 
     @GET("api/users/{id}")
     suspend fun getUser(
         @Field("id") id: String
-    ): User
+    ): UserResponse
+
+    @GET("api/users")
+    suspend fun getUsers(
+        @Header("Authorization") token: String,
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int
+    ): PageResponse<UserResponse>
 }

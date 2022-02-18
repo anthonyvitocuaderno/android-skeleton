@@ -19,6 +19,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
 
     override val viewModel: LoginViewModel by viewModels()
 
+    override val title = "Login"
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

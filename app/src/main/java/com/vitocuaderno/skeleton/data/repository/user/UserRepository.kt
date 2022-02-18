@@ -1,8 +1,10 @@
 package com.vitocuaderno.skeleton.data.repository.user
 
-import com.vitocuaderno.skeleton.data.remote.models.User
+import androidx.paging.PagingSource
+import com.vitocuaderno.skeleton.data.local.models.User
 import kotlinx.coroutines.Deferred
 
 interface UserRepository {
     fun getAsync(id: String): Deferred<User>
+    fun getAllPaged(): PagingSource<Int, User>
 }

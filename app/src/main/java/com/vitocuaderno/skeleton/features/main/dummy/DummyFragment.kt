@@ -11,4 +11,5 @@ class DummyFragment : BaseFragment<FragmentDummyBinding>() {
     override fun getLayoutId(): Int = R.layout.fragment_dummy
 
     override val viewModel: DummyViewModel by viewModels()
+    override val title = "Dummy"
 }

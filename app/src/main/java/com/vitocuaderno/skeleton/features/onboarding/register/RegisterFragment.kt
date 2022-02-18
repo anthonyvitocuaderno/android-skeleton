@@ -17,6 +17,9 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     override fun getLayoutId(): Int = R.layout.fragment_register
 
     override val viewModel: RegisterViewModel by viewModels()
+
+    override val title = "Register"
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

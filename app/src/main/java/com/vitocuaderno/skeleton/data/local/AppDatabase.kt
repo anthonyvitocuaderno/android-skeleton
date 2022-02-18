@@ -8,16 +8,16 @@ import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
-import com.vitocuaderno.skeleton.data.local.dao.UserDao
-import com.vitocuaderno.skeleton.data.local.models.UserDb
-import com.vitocuaderno.skeleton.utils.DATABASE_NAME
 import com.vitocuaderno.skeleton.data.local.converters.Converters
+import com.vitocuaderno.skeleton.data.local.dao.UserDao
+import com.vitocuaderno.skeleton.data.local.models.User
+import com.vitocuaderno.skeleton.utils.DATABASE_NAME
 import com.vitocuaderno.skeleton.workers.SeedDatabaseWorker
 
 /**
  * The Room database for this app
  */
-@Database(entities = [UserDb::class], version = 1, exportSchema = false)
+@Database(entities = [User::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun userDao(): UserDao

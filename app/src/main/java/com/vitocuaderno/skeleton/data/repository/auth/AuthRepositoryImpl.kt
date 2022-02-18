@@ -3,7 +3,7 @@ package com.vitocuaderno.skeleton.data.repository.auth
 import android.content.SharedPreferences
 import com.vitocuaderno.skeleton.data.local.AppDatabase
 import com.vitocuaderno.skeleton.data.remote.ApiService
-import com.vitocuaderno.skeleton.data.remote.models.Session
+import com.vitocuaderno.skeleton.data.remote.models.SessionResponse
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -36,13 +36,13 @@ class AuthRepositoryImpl @Inject constructor(
         session.token
     }
 
-    override fun getSessionAsync(): Deferred<Session?> = GlobalScope.async {
+    override fun getSessionAsync(): Deferred<SessionResponse?> = GlobalScope.async {
         val id = sharedPreferences.getString(PREF_SESSION_ID, "")
         val token = sharedPreferences.getString(PREF_SESSION_TOKEN, "")
         if (id.isNullOrEmpty() || token.isNullOrEmpty()) {
             null
         } else {
-            Session(token, id)
+            SessionResponse(token, id)
         }
     }
 
