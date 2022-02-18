@@ -1,6 +1,7 @@
 package com.vitocuaderno.skeleton.features.main
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vitocuaderno.skeleton.R
@@ -40,6 +41,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private fun handleState(state: MainState) {
         when (state) {
+            MainState.Busy -> {
+                Toast.makeText(this, "Please wait...", Toast.LENGTH_SHORT).show()
+            }
             MainState.IsLoggedOut -> {
                 launchOnboarding()
             }

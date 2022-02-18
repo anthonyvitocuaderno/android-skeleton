@@ -6,6 +6,7 @@ import androidx.lifecycle.viewModelScope
 import com.vitocuaderno.skeleton.data.repository.auth.AuthRepository
 import com.vitocuaderno.skeleton.features.common.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -19,6 +20,8 @@ class MainViewModel @Inject constructor(
 
     fun logout() {
         viewModelScope.launch {
+            _state.postValue(MainState.Busy)
+            delay(100)
             authRepository.logoutAsync()
             _state.postValue(MainState.IsLoggedOut)
         }
