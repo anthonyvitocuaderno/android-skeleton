@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.paging.LoadState
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.FragmentUsersBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
@@ -30,6 +31,19 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>() {
             val adapter = UsersAdapter()
             val loaderStateAdapter = BaseLoaderStateAdapter { adapter.retry() }
             recycler.adapter = adapter.withLoadStateFooter(loaderStateAdapter)
+            recycler.setEmptyView(emptyView)
+            swipeRefresh.setOnRefreshListener {
+                adapter.refresh()
+            }
+            adapter.addLoadStateListener {
+                if (it.refresh is LoadState.Loading) {
+                    swipeRefresh.isRefreshing = true
+                    emptyView.visibility = View.GONE
+                } else {
+                    swipeRefresh.isRefreshing = false
+                    recycler.refreshEmptyView()
+                }
+            }
 
             lifecycleScope.launch {
                 viewModel.usersFlow.collectLatest { pagingData ->
