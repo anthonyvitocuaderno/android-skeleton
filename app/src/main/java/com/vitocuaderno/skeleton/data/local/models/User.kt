@@ -7,7 +7,7 @@ import com.vitocuaderno.skeleton.data.remote.models.UserResponse
 
 @Entity(tableName = "users")
 data class User(
-    @PrimaryKey @ColumnInfo(name = "id") val id: String,
+    @PrimaryKey @ColumnInfo(name = "id") val id: Int,
     val email: String,
     val firstName: String,
     val lastName: String,
@@ -16,7 +16,7 @@ data class User(
     fun toRemote(): UserResponse {
         this.apply {
             return UserResponse(
-                id,
+                id.toString(),
                 email,
                 firstName,
                 lastName,

@@ -13,7 +13,7 @@ data class UserResponse(
     fun toLocal(): User {
         this.apply {
             return User(
-                id,
+                id.toInt(),
                 email,
                 firstName,
                 lastName,

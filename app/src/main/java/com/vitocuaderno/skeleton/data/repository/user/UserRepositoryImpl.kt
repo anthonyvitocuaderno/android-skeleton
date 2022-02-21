@@ -60,6 +60,7 @@ private class PageKeyedRemoteMediator(
         loadType: LoadType,
         state: PagingState<Int, User>
     ): MediatorResult {
+//        return MediatorResult.Error(Exception("TEST"))
         try {
 
             val page = key / state.config.pageSize + 1
