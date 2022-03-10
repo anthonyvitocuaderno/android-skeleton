@@ -79,7 +79,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
     }
 
-    private fun resetToIdle(username: String?) {
+    private fun resetToIdle(username: String? = null) {
         username?.let { binding.tilUsername.editText?.setText(it) }
         binding.tilPassword.editText?.setText("")
         binding.btnLogin.text = "Login"
