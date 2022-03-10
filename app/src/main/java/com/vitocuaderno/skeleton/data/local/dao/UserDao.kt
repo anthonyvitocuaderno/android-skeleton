@@ -17,7 +17,7 @@ interface UserDao {
     fun getAllPaged(): PagingSource<Int, User>
 
     @Query("SELECT * FROM users WHERE id = :id")
-    fun getOne(id: String): Flow<User>
+    fun getOne(id: Int): Flow<User>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertAll(collection: List<User>): List<Long>

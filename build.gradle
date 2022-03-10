@@ -50,13 +50,6 @@ buildscript {
         constraintLayoutVersion = '2.0.4'
         glideVersion = '4.10.0'
         circleImageViewVersion = "2.2.0"
-
-        // Test
-        junitVersion = '4.12'
-        testExtJunitVersion = '1.1.2'
-        espressoCoreVersion = '3.3.0'
-        mockitoVersion = "3.11.0"
-        coreTestingVersion = '2.1.0'
     }
 
     dependencies {
