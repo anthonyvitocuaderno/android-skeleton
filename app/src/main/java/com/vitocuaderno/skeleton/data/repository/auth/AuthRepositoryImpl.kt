@@ -16,14 +16,14 @@ class AuthRepositoryImpl @Inject constructor(
     private val db: AppDatabase,
     private val sharedPreferences: SharedPreferences
 ) : AuthRepository {
-    override fun loginAsync(username: String, password: String): Deferred<String> = GlobalScope.async {
+    override suspend fun login(username: String, password: String): String {
         val session = apiService.login(username, password)
 
         // TODO validate session
         // Mock user id = 4
         saveSession("4", session.token)
 
-        session.token
+        return session.token
     }
 
     override fun registerAsync(username: String, password: String): Deferred<String> = GlobalScope.async {

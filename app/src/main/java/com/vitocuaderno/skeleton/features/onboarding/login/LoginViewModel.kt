@@ -28,7 +28,7 @@ class LoginViewModel @Inject constructor(
         _state.postValue(LoginState.Busy)
         viewModelScope.launch {
             try {
-                val token = authRepository.loginAsync(username, password).await()
+                val token = authRepository.login(username, password)
                 if (token.isNullOrEmpty()) {
                     _state.postValue(LoginState.Failed("unexpected error"))
                 } else {
