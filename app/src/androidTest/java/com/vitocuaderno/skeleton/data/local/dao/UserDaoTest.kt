@@ -86,4 +86,40 @@ class UserDaoTest {
 
         assertTrue("Not inserted", insertedUsers.containsAll(users))
     }
+
+    @Test
+    fun clear() = runBlockingTest {
+        val users = listOf(
+            User(
+                1,
+                "test@email.com",
+                "John",
+                "Doe",
+                "test"
+            ),
+            User(
+                2,
+                "test2@email.com",
+                "Jane",
+                "Doe",
+                "test"
+            ),
+        )
+
+        userDao.insertAll(users)
+
+        userDao.clear()
+
+        val insertedUsers = userDao.getAll().asLiveData().getOrAwaitValue()
+
+        assertTrue("Not cleared", insertedUsers.isEmpty())
+    }
+
+    @Test
+    fun pagingSource() = runBlockingTest {
+        // TODO
+//        val actual = userDao.getAllPaged()
+//
+//        assertEquals(actual as? PagingSource.LoadResult.Page)?.data, listOf(...))
+    }
 }
