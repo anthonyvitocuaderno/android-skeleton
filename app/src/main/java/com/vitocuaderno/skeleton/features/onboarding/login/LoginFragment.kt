@@ -71,6 +71,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
             }
             is LoginState.Failed -> {
                 Toast.makeText(requireContext(), "Failed! " + state.message, Toast.LENGTH_SHORT).show()
+                resetToIdle()
             }
             else -> {
                 // TODO
@@ -78,8 +79,8 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
         }
     }
 
-    private fun resetToIdle(username: String) {
-        binding.tilUsername.editText?.setText(username)
+    private fun resetToIdle(username: String?) {
+        username?.let { binding.tilUsername.editText?.setText(it) }
         binding.tilPassword.editText?.setText("")
         binding.btnLogin.text = "Login"
 

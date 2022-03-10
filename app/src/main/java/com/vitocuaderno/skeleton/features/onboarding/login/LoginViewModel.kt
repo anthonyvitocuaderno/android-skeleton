@@ -6,7 +6,6 @@ import androidx.lifecycle.viewModelScope
 import com.vitocuaderno.skeleton.data.repository.auth.AuthRepository
 import com.vitocuaderno.skeleton.features.common.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.net.UnknownHostException
@@ -38,9 +37,6 @@ class LoginViewModel @Inject constructor(
                 _state.postValue(LoginState.Failed("cannot connect"))
             } catch (e: HttpException) {
                 _state.postValue(LoginState.Failed("invalid username/password")) // e.message
-            } finally {
-                delay(100)
-                _state.postValue(LoginState.Idle(username))
             }
         }
     }
