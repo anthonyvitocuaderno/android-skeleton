@@ -5,27 +5,26 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import android.widget.Toast
-import androidx.fragment.app.viewModels
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.FragmentRegisterBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
 import com.vitocuaderno.skeleton.features.onboarding.OnboardingActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
+class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), RegisterContract.View {
     override fun getLayoutId(): Int = R.layout.fragment_register
 
-    override val viewModel: RegisterViewModel by viewModels()
+    @Inject
+    lateinit var presenter: RegisterPresenter
 
     override val title = "Register"
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.state.observe(viewLifecycleOwner) {
-            handleState(it)
-        }
+        presenter.start()
 
         binding.apply {
             btnRegister.setOnClickListener {
@@ -45,34 +44,14 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
     }
 
     private fun register() {
-        viewModel.register(
+        presenter.register(
             binding.tilUsername.editText!!.text.toString(),
             binding.tilPassword.editText!!.text.toString(),
             binding.tilConfirmPassword.editText!!.text.toString()
         )
     }
 
-    private fun handleState(state: RegisterState) {
-        when (state) {
-            is RegisterState.Idle -> {
-                resetToIdle(state.username)
-            }
-            RegisterState.Busy -> {
-                setBusy()
-            }
-            RegisterState.Success -> {
-                (requireActivity() as OnboardingActivity).launchMain()
-            }
-            is RegisterState.Failed -> {
-                Toast.makeText(requireContext(), "Failed! " + state.message, Toast.LENGTH_SHORT).show()
-            }
-            else -> {
-                // TODO
-            }
-        }
-    }
-
-    private fun resetToIdle(username: String) {
+    override fun resetToIdle(username: String?) {
         binding.tilUsername.editText?.setText(username)
         binding.tilPassword.editText?.setText("")
         binding.tilConfirmPassword.editText?.setText("")
@@ -81,10 +60,18 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
         setUiEnabled(true)
     }
 
-    private fun setBusy() {
+    override fun showBusy() {
         binding.btnRegister.text = "Please wait..."
 
         setUiEnabled(false)
+    }
+
+    override fun showSuccess() {
+        (requireActivity() as OnboardingActivity).launchMain()
+    }
+
+    override fun showFailed(message: String) {
+        Toast.makeText(requireContext(), "Failed! $message", Toast.LENGTH_SHORT).show()
     }
 
     private fun setUiEnabled(isEnabled: Boolean) {
@@ -92,5 +79,15 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
         binding.tilPassword.isEnabled = isEnabled
         binding.tilConfirmPassword.isEnabled = isEnabled
         binding.btnRegister.isEnabled = isEnabled
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.setView(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        presenter.unsetView()
     }
 }

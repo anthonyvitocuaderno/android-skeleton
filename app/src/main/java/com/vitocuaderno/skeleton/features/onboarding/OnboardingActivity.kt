@@ -1,31 +1,32 @@
 package com.vitocuaderno.skeleton.features.onboarding
 
 import android.os.Bundle
-import androidx.activity.viewModels
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.ActivityOnboardingBinding
 import com.vitocuaderno.skeleton.features.common.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
-class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>() {
+class OnboardingActivity : BaseActivity<ActivityOnboardingBinding>(), OnboardingContract.View {
     override fun getLayoutId(): Int = R.layout.activity_onboarding
 
-    override val viewModel: OnboardingViewModel by viewModels()
+    @Inject
+    lateinit var presenter: OnboardingPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        viewModel.state.observe(this) {
-            handleState(it)
-        }
+        presenter.start()
     }
 
-    private fun handleState(state: OnboardingState) {
-        when (state) {
-            OnboardingState.Idle -> {
-                // TODO
-            }
-        }
+    override fun onResume() {
+        super.onResume()
+        presenter.setView(this)
+    }
+
+    override fun onPause() {
+        super.onPause()
+        presenter.unsetView()
     }
 }

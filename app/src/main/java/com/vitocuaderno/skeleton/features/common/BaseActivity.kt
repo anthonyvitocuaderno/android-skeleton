@@ -14,7 +14,6 @@ import com.vitocuaderno.skeleton.features.onboarding.OnboardingActivity
  * Automatically initializes ViewDataBinding class for your activity.
  */
 abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
-    abstract val viewModel: BaseViewModel
 
     lateinit var binding: B
 
@@ -31,8 +30,6 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
             getLayoutId()
         )
         binding.lifecycleOwner = this
-
-        viewModel.start()
     }
 
     fun launchMain() {

@@ -14,8 +14,6 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
 
     lateinit var binding: B
 
-    abstract val viewModel: BaseViewModel
-
     abstract val title: String?
 
     @LayoutRes
