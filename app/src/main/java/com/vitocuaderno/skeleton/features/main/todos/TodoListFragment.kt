@@ -15,6 +15,7 @@ import com.vitocuaderno.skeleton.features.main.todos.tododetail.AddTaskFragment.
 import com.vitocuaderno.skeleton.features.main.todos.tododetail.TodoDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -103,7 +104,9 @@ class TodoListFragment : BaseFragment<FragmentTodoListBinding>(), TodoListContra
     }
 
     override fun showTasks(tasks: List<Task>) {
-        adapter?.submitData(tasks)
+        runBlocking {
+            adapter?.submitData(tasks)
+        }
     }
 
     override fun showAddTask() {

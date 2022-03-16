@@ -14,7 +14,9 @@ class TaskJsonDatabase(
 
     private fun getFile(): File {
         val path = context.applicationContext.filesDir
-        return File(path, name)
+        val file = File(path, name)
+        file.createNewFile()
+        return file
     }
 
     fun read(): List<Task> {
@@ -24,9 +26,13 @@ class TaskJsonDatabase(
 
         val inputString = bufferedReader.use { it.readText() }
 
-        var tasks = gson.fromJson(inputString, Array<Task>::class.java)
+        try {
+            var tasks = gson.fromJson(inputString, Array<Task>::class.java)
 
-        return tasks.asList()
+            return tasks.asList()
+        } catch (e: Exception) {
+            return emptyList()
+        }
     }
 
     fun write(tasks: List<Task>) {
