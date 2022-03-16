@@ -1,10 +1,12 @@
 package com.vitocuaderno.skeleton.features.splash
 
 import android.os.Bundle
+import androidx.lifecycle.lifecycleScope
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.ActivitySplashBinding
 import com.vitocuaderno.skeleton.features.common.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -19,6 +21,10 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(), SplashContract.Vie
         supportActionBar?.hide()
 
         presenter.start()
+
+        lifecycleScope.launch {
+            presenter.checkSession()
+        }
     }
 
     override fun navigateToOnboarding() {

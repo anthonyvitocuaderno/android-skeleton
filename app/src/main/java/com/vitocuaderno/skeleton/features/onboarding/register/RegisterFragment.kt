@@ -5,11 +5,13 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.FragmentRegisterBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
 import com.vitocuaderno.skeleton.features.onboarding.OnboardingActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -44,11 +46,13 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>(), RegisterContra
     }
 
     private fun register() {
-        presenter.register(
-            binding.tilUsername.editText!!.text.toString(),
-            binding.tilPassword.editText!!.text.toString(),
-            binding.tilConfirmPassword.editText!!.text.toString()
-        )
+        lifecycleScope.launch {
+            presenter.register(
+                binding.tilUsername.editText!!.text.toString(),
+                binding.tilPassword.editText!!.text.toString(),
+                binding.tilConfirmPassword.editText!!.text.toString()
+            )
+        }
     }
 
     override fun resetToIdle(username: String?) {

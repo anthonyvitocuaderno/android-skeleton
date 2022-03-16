@@ -12,6 +12,6 @@ class MainContract {
     }
 
     interface Presenter : BasePresenter<View> {
-        fun logout()
+        suspend fun logout()
     }
 }

@@ -12,6 +12,6 @@ class RegisterContract {
     }
 
     interface Presenter : BasePresenter<View> {
-        fun register(username: String, password: String, confirmPassword: String)
+        suspend fun register(username: String, password: String, confirmPassword: String)
     }
 }

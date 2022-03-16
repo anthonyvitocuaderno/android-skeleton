@@ -2,11 +2,13 @@ package com.vitocuaderno.skeleton.features.main
 
 import android.os.Bundle
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import com.google.android.material.tabs.TabLayoutMediator
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.ActivityMainBinding
 import com.vitocuaderno.skeleton.features.common.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -25,7 +27,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(), MainContract.View {
 
         binding.apply {
             btnLogout.setOnClickListener {
-                presenter.logout()
+                lifecycleScope.launch {
+                    presenter.logout()
+                }
             }
 
             mainPagerAdapter = MainPagerAdapter(this@MainActivity)

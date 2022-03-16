@@ -1,8 +1,6 @@
 package com.vitocuaderno.skeleton.features.onboarding.register
 
 import com.vitocuaderno.skeleton.data.repository.auth.AuthRepository
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.net.UnknownHostException
 import javax.inject.Inject
@@ -25,7 +23,7 @@ class RegisterPresenter @Inject constructor(
         mView = null
     }
 
-    override fun register(username: String, password: String, confirmPassword: String) {
+    override suspend fun register(username: String, password: String, confirmPassword: String) {
 
         if (password != confirmPassword) {
             mView?.showFailed("passwords do not match")
@@ -34,21 +32,19 @@ class RegisterPresenter @Inject constructor(
 
         mView?.showBusy()
 
-        GlobalScope.launch {
-            try {
-                val token = authRepository.registerAsync(username, password).await()
-                if (token.isNullOrEmpty()) {
-                    mView?.showFailed("unexpected error")
-                } else {
-                    mView?.showSuccess()
-                }
-            } catch (e: UnknownHostException) {
-                mView?.showFailed("cannot connect")
-            } catch (e: HttpException) {
-                mView?.showFailed("invalid username/password")
-            } finally {
-                mView?.resetToIdle(username)
+        try {
+            val token = authRepository.registerAsync(username, password).await()
+            if (token.isNullOrEmpty()) {
+                mView?.showFailed("unexpected error")
+            } else {
+                mView?.showSuccess()
             }
+        } catch (e: UnknownHostException) {
+            mView?.showFailed("cannot connect")
+        } catch (e: HttpException) {
+            mView?.showFailed("invalid username/password")
+        } finally {
+            mView?.resetToIdle(username)
         }
     }
 }

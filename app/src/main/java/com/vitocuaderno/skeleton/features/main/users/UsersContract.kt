@@ -10,7 +10,6 @@ class UsersContract {
         fun resetToIdle()
         fun showBusy()
         fun showEmptyList()
-        fun submitList(source: PagingData<User>)
     }
 
     interface Presenter : BasePresenter<View> {

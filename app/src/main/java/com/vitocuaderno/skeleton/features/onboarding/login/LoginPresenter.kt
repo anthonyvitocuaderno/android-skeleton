@@ -1,8 +1,6 @@
 package com.vitocuaderno.skeleton.features.onboarding.login
 
 import com.vitocuaderno.skeleton.data.repository.auth.AuthRepository
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import retrofit2.HttpException
 import java.net.UnknownHostException
 import javax.inject.Inject
@@ -25,21 +23,20 @@ class LoginPresenter @Inject constructor(
         mView = null
     }
 
-    override fun login(username: String, password: String) {
+    override suspend fun login(username: String, password: String) {
         mView?.showBusy()
-        GlobalScope.launch {
-            try {
-                val token = authRepository.login(username, password)
-                if (token.isNullOrEmpty()) {
-                    mView?.showFailed("unexpected error")
-                } else {
-                    mView?.showSuccess()
-                }
-            } catch (e: UnknownHostException) {
-                mView?.showFailed("cannot connect")
-            } catch (e: HttpException) {
-                mView?.showFailed("invalid username/password") // e.message
+
+        try {
+            val token = authRepository.login(username, password)
+            if (token.isNullOrEmpty()) {
+                mView?.showFailed("unexpected error")
+            } else {
+                mView?.showSuccess()
             }
+        } catch (e: UnknownHostException) {
+            mView?.showFailed("cannot connect")
+        } catch (e: HttpException) {
+            mView?.showFailed("invalid username/password") // e.message
         }
     }
 }

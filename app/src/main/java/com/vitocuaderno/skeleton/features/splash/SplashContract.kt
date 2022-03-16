@@ -13,6 +13,6 @@ class SplashContract {
     }
 
     interface Presenter : BasePresenter<View> {
-        // TODO
+        suspend fun checkSession()
     }
 }

@@ -12,6 +12,6 @@ class LoginContract {
     }
 
     interface Presenter : BasePresenter<View> {
-        fun login(username: String, password: String)
+        suspend fun login(username: String, password: String)
     }
 }

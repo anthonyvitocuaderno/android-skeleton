@@ -1,16 +1,16 @@
 package com.vitocuaderno.skeleton.features.main.users
 
+import android.content.Context
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.LoadState
-import androidx.paging.PagingData
 import com.vitocuaderno.skeleton.R
-import com.vitocuaderno.skeleton.data.local.models.User
 import com.vitocuaderno.skeleton.databinding.FragmentUsersBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
 import com.vitocuaderno.skeleton.features.common.BaseLoaderStateAdapter
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -27,8 +27,6 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(), UsersContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        presenter.start()
 
         binding.apply {
 
@@ -51,7 +49,19 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(), UsersContract.View {
                     recycler.refreshEmptyView()
                 }
             }
+
+            lifecycleScope.launch {
+                presenter.usersFlow.collectLatest { pagingData ->
+                    adapter?.submitData(pagingData)
+                }
+            }
+
         }
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        presenter.start()
     }
 
     override fun onResume() {
@@ -74,11 +84,5 @@ class UsersFragment : BaseFragment<FragmentUsersBinding>(), UsersContract.View {
 
     override fun showEmptyList() {
         // TODO
-    }
-
-    override fun submitList(source: PagingData<User>) {
-        lifecycleScope.launch {
-            adapter?.submitData(source)
-        }
     }
 }

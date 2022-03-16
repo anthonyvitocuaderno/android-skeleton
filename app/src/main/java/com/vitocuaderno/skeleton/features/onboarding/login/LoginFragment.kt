@@ -5,12 +5,14 @@ import android.view.View
 import android.view.inputmethod.EditorInfo
 import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.FragmentLoginBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
 import com.vitocuaderno.skeleton.features.onboarding.OnboardingActivity
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -54,10 +56,12 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>(), LoginContract.View {
     }
 
     private fun login() {
-        presenter.login(
-            binding.tilUsername.editText!!.text.toString(),
-            binding.tilPassword.editText!!.text.toString()
-        )
+        lifecycleScope.launch {
+            presenter.login(
+                binding.tilUsername.editText!!.text.toString(),
+                binding.tilPassword.editText!!.text.toString()
+            )
+        }
     }
 
     override fun resetToIdle(username: String?) {
