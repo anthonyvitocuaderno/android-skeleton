@@ -2,6 +2,8 @@ package com.vitocuaderno.skeleton.di
 
 import com.vitocuaderno.skeleton.data.repository.auth.AuthRepository
 import com.vitocuaderno.skeleton.data.repository.auth.AuthRepositoryImpl
+import com.vitocuaderno.skeleton.data.repository.task.TaskRepository
+import com.vitocuaderno.skeleton.data.repository.task.TaskRepositoryImpl
 import com.vitocuaderno.skeleton.data.repository.user.UserRepository
 import com.vitocuaderno.skeleton.data.repository.user.UserRepositoryImpl
 import dagger.Binds
@@ -17,4 +19,7 @@ interface RepositoryModule {
 
     @Binds
     fun providesUserRepository(repository: UserRepositoryImpl): UserRepository
+
+    @Binds
+    fun providesTaskRepository(repository: TaskRepositoryImpl): TaskRepository
 }

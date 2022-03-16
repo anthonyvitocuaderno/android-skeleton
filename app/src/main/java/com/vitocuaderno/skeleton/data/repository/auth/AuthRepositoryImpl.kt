@@ -21,7 +21,7 @@ class AuthRepositoryImpl @Inject constructor(
 
         // TODO validate session
         // Mock user id = 4
-        saveSession("4", session.token)
+        saveSession(session.id, username, session.token)
 
         return session.token
     }
@@ -31,7 +31,7 @@ class AuthRepositoryImpl @Inject constructor(
 
         // TODO validate session
 
-        saveSession(session.id, session.token)
+        saveSession(session.id, username, session.token)
 
         session.token
     }
@@ -40,12 +40,17 @@ class AuthRepositoryImpl @Inject constructor(
         /***
          * Async for any server-side verification
          */
-        val id = sharedPreferences.getString(PREF_SESSION_ID, "")
-        val token = sharedPreferences.getString(PREF_SESSION_TOKEN, "")
-        return if (id.isNullOrEmpty() || token.isNullOrEmpty()) {
+        return try {
+            val id = sharedPreferences.getInt(PREF_SESSION_ID, -1)
+            val username = sharedPreferences.getString(PREF_SESSION_USERNAME, "")
+            val token = sharedPreferences.getString(PREF_SESSION_TOKEN, "")
+            if (id == -1 || username.isNullOrEmpty() || token.isNullOrEmpty()) {
+                null
+            } else {
+                SessionResponse(token, id, username)
+            }
+        } catch (e: Exception) {
             null
-        } else {
-            SessionResponse(token, id)
         }
     }
 
@@ -54,9 +59,10 @@ class AuthRepositoryImpl @Inject constructor(
         clearSession()
     }
 
-    private fun saveSession(id: String, token: String) {
+    private fun saveSession(id: Int, username: String, token: String) {
         sharedPreferences.edit().apply {
-            putString(PREF_SESSION_ID, id)
+            putInt(PREF_SESSION_ID, id)
+            putString(PREF_SESSION_USERNAME, username)
             putString(PREF_SESSION_TOKEN, token)
         }.apply()
     }
@@ -64,6 +70,7 @@ class AuthRepositoryImpl @Inject constructor(
     private fun clearSession() {
         sharedPreferences.edit().apply {
             remove(PREF_SESSION_ID)
+            remove(PREF_SESSION_USERNAME)
             remove(PREF_SESSION_TOKEN)
         }.apply()
     }
@@ -71,5 +78,6 @@ class AuthRepositoryImpl @Inject constructor(
     companion object {
         private const val PREF_SESSION_ID = "PREF_SESSION_ID"
         private const val PREF_SESSION_TOKEN = "PREF_SESSION_TOKEN"
+        private const val PREF_SESSION_USERNAME = "PREF_SESSION_USERNAME"
     }
 }

@@ -1,16 +1,14 @@
-package com.vitocuaderno.skeleton.features.main
+package com.vitocuaderno.skeleton.features.main.todos.add
 
 import com.vitocuaderno.skeleton.features.common.BasePresenter
 import com.vitocuaderno.skeleton.features.common.BaseView
 
-class MainContract {
+class AddTaskContract {
     interface View : BaseView<Presenter> {
-        fun resetToIdle()
-        fun showBusy()
-        fun showFailed(message: String)
+        fun showSuccess()
     }
 
     interface Presenter : BasePresenter<View> {
-        // TODO
+        fun submitTask(title: String, description: String)
     }
 }

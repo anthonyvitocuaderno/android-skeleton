@@ -9,12 +9,6 @@ class MainPresenter @Inject constructor(
 
     private var mView: MainContract.View? = null
 
-    override suspend fun logout() {
-        mView?.showBusy()
-        authRepository.logoutAsync()
-        mView?.logout()
-    }
-
     override fun start() {
         // TODO
     }
