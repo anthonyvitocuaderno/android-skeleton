@@ -2,6 +2,8 @@ package com.vitocuaderno.skeleton.features.main.todos.tododetail
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.os.bundleOf
+import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
 import com.vitocuaderno.skeleton.R
 import com.vitocuaderno.skeleton.databinding.FragmentAddTaskBinding
@@ -33,6 +35,7 @@ class AddTaskFragment : BaseFragment<FragmentAddTaskBinding>(), AddTaskContract.
     }
 
     override fun showSuccess() {
+        requireParentFragment().setFragmentResult(REQUEST_ADD_TASK, bundleOf())
         findNavController().navigateUp()
     }
 

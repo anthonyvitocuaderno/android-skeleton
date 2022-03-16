@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 import com.vitocuaderno.skeleton.data.local.AppDatabase
+import com.vitocuaderno.skeleton.data.local.TaskJsonDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -14,6 +15,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 @Module
 class DatabaseModule {
+
+    @Singleton
+    @Provides
+    fun provideTasksDatabase(@ApplicationContext context: Context): TaskJsonDatabase {
+        return TaskJsonDatabase(context)
+    }
 
     @Singleton
     @Provides

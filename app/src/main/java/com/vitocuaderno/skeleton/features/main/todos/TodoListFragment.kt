@@ -11,6 +11,7 @@ import com.vitocuaderno.skeleton.data.local.models.Task
 import com.vitocuaderno.skeleton.databinding.FragmentTodoListBinding
 import com.vitocuaderno.skeleton.features.common.BaseFragment
 import com.vitocuaderno.skeleton.features.main.MainFragmentDirections
+import com.vitocuaderno.skeleton.features.main.todos.tododetail.AddTaskFragment.Companion.REQUEST_ADD_TASK
 import com.vitocuaderno.skeleton.features.main.todos.tododetail.TodoDetailFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -106,6 +107,11 @@ class TodoListFragment : BaseFragment<FragmentTodoListBinding>(), TodoListContra
     }
 
     override fun showAddTask() {
+        setFragmentResultListener(
+            REQUEST_ADD_TASK
+        ) { _, _ ->
+            reload()
+        }
 
         findNavController().navigate(
             MainFragmentDirections.actionMainFragmentToAddTaskFragment()
