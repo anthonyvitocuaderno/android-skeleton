@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".features.main.calendar.week.WeekCalendarFragment"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="@dimen/calendarWeekTimeWidth"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHeaderHeight" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:textAlignment="textEnd"
+                    android:text="12 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="1 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="2 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="3 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="4 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="5 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="6 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="7 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="8 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="9 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="10 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="11 am" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="12 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="1 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="2 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="3 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="4 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="5 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="6 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="7 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="8 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="9 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="10 pm" />
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/calendarWeekHourHeight"
+                    android:textAlignment="textEnd"
+                    android:text="11 pm" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <include android:id="@+id/columnSun" layout="@layout/column_week_calendar" app:day="@{&quot;Sun&quot;}" />
+            <include android:id="@+id/columnMon" layout="@layout/column_week_calendar" app:day="@{&quot;Mon&quot;}" />
+            <include android:id="@+id/columnTue" layout="@layout/column_week_calendar" app:day="@{&quot;Tue&quot;}" />
+            <include android:id="@+id/columnWed" layout="@layout/column_week_calendar" app:day="@{&quot;Wed&quot;}" />
+            <include android:id="@+id/columnThu" layout="@layout/column_week_calendar" app:day="@{&quot;Thur&quot;}" />
+            <include android:id="@+id/columnFri" layout="@layout/column_week_calendar" app:day="@{&quot;Fri&quot;}" />
+            <include android:id="@+id/columnSat" layout="@layout/column_week_calendar" app:day="@{&quot;Sat&quot;}" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+</layout>

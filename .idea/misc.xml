@@ -7,6 +7,8 @@
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/activity_onboarding.xml" value="0.17980072463768115" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/activity_splash.xml" value="0.16" />
+        <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/block_week_calendar.xml" value="0.1" />
+        <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/column_week_calendar.xml" value="0.12708333333333333" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/fragment_add_task.xml" value="0.1" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/fragment_dummy.xml" value="0.13854166666666667" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/fragment_login.xml" value="0.1375" />
@@ -14,6 +16,7 @@
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/fragment_todo_detail.xml" value="0.16" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/fragment_todo_list.xml" value="0.264" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/fragment_users.xml" value="0.152" />
+        <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/fragment_week_calendar.xml" value="0.16" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/item_task.xml" value="0.1453125" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/register_fragment.xml" value="0.1375" />
         <entry key="..\:/Users/Vito/Desktop/TEMP/skeleton/app/src/main/res/layout/row_loader.xml" value="0.2" />

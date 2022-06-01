@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable name="day" type="String"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        >
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dayHeader"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHeaderHeight"
+            android:layout_weight="1"
+            android:textAlignment="center"
+            android:text="@{day}"
+            />
+
+        <FrameLayout
+            android:id="@+id/t12am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/dayHeader">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t1230am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t12am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t1am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t1230am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t130am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t1am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t2am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t130am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t230am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t2am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t3am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t230am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t330am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t3am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t4am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t330am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t430am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t4am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t5am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t430am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t530am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t5am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t6am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t530am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t630am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t6am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t7am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t630am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t730am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t7am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t8am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t730am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t830am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t8am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t9am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t830am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t930am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t9am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t10am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t930am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t1030am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t10am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t11am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t1030am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t1130am"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t11am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t12pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t1130am">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t1230pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t12pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t1pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t1230pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t130pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t1pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t2pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t130pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t230pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t2pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t3pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t230pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t330pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t3pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t4pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t330pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t430pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t4pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t5pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t430pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t530pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t5pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t6pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t530pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t630pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t6pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t7pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t630pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t730pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t7pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t8pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t730pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t830pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t8pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t9pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t830pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t930pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t9pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t10pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t930pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t1030pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t10pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t11pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t1030pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor1" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/t1130pm"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/calendarWeekHalfHourHeight"
+            android:background="@color/white"
+            app:layout_constraintTop_toBottomOf="@+id/t11pm">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="0.5dp"
+                android:background="@color/calendarWeekBlockColor2" />
+        </FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

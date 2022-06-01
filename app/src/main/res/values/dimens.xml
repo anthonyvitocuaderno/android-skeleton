@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="calendarWeekHalfHourHeight">24dp</dimen>
+    <dimen name="calendarWeekHourHeight">48dp</dimen>
+    <dimen name="calendarWeekHeaderHeight">20dp</dimen>
+    <dimen name="calendarWeekTimeWidth">48dp</dimen>
+</resources>

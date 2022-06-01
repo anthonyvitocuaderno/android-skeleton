@@ -9,4 +9,7 @@
     <color name="moss_purple_700">#4e3b45</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="calendarWeekBlockColor1">#DDD</color>
+    <color name="calendarWeekBlockColor2">#EEE</color>
+    <color name="calendarWeekBlockColor3">#BEE</color>
 </resources>
