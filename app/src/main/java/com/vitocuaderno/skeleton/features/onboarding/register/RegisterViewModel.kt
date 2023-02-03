@@ -22,6 +22,7 @@ class RegisterViewModel @Inject constructor(
 
     override fun start() {
         super.start()
+        // TODO
     }
 
     fun register(username: String, password: String, confirmPassword: String) {
@@ -34,8 +35,8 @@ class RegisterViewModel @Inject constructor(
         _state.postValue(RegisterState.Busy)
         viewModelScope.launch {
             try {
-                val token = authRepository.registerAsync(username, password).await()
-                if (token.isNullOrEmpty()) {
+                val token = authRepository.registerAsync(username, password)
+                if (token.isEmpty()) {
                     _state.postValue(RegisterState.Failed("unexpected error"))
                 } else {
                     _state.postValue(RegisterState.Success)

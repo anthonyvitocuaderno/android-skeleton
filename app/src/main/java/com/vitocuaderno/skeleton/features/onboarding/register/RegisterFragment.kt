@@ -3,7 +3,6 @@ package com.vitocuaderno.skeleton.features.onboarding.register
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import com.vitocuaderno.skeleton.R
@@ -32,15 +31,13 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding>() {
                 register()
             }
 
-            tilConfirmPassword.editText!!.setOnEditorActionListener(
-                TextView.OnEditorActionListener { _, actionId, _ ->
-                    if (actionId == EditorInfo.IME_ACTION_DONE) {
-                        register()
-                        true
-                    }
-                    false
+            tilConfirmPassword.editText!!.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    register()
+                    true
                 }
-            )
+                false
+            }
         }
     }
 

@@ -5,12 +5,12 @@ import com.vitocuaderno.skeleton.data.local.AppDatabase
 import com.vitocuaderno.skeleton.data.local.models.User
 import com.vitocuaderno.skeleton.data.remote.ApiService
 import com.vitocuaderno.skeleton.data.repository.auth.AuthRepository
+import com.vitocuaderno.skeleton.di.IoDispatcher
 import com.vitocuaderno.skeleton.utils.PAGE_SIZE
 import com.vitocuaderno.skeleton.utils.PAGING_MAX_SIZE
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.withContext
 import retrofit2.HttpException
 import java.io.IOException
 import javax.inject.Inject
@@ -20,9 +20,10 @@ import javax.inject.Singleton
 class UserRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val db: AppDatabase,
-    private val authRepository: AuthRepository
+    private val authRepository: AuthRepository,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : UserRepository {
-    override fun getAsync(id: String): Deferred<User> = GlobalScope.async {
+    override suspend fun getAsync(id: String): User = withContext(ioDispatcher) {
         val response = apiService.getUser(id)
         // TODO db update user
         response.toLocal()

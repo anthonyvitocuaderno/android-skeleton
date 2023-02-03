@@ -9,7 +9,7 @@ import com.vitocuaderno.skeleton.features.main.users.UsersFragment
 class MainPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
     override fun getItemCount(): Int = 5
 
-    private val titles = arrayOf<String>(
+    private val titles = arrayOf(
         "Users",
         "Dummy",
         "Dummy",

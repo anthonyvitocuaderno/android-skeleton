@@ -4,9 +4,9 @@ import android.content.SharedPreferences
 import com.vitocuaderno.skeleton.data.local.AppDatabase
 import com.vitocuaderno.skeleton.data.remote.ApiService
 import com.vitocuaderno.skeleton.data.remote.models.SessionResponse
-import kotlinx.coroutines.Deferred
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.async
+import com.vitocuaderno.skeleton.di.IoDispatcher
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.withContext
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -14,19 +14,20 @@ import javax.inject.Singleton
 class AuthRepositoryImpl @Inject constructor(
     private val apiService: ApiService,
     private val db: AppDatabase,
-    private val sharedPreferences: SharedPreferences
+    private val sharedPreferences: SharedPreferences,
+    @IoDispatcher private val ioDispatcher: CoroutineDispatcher
 ) : AuthRepository {
-    override suspend fun login(username: String, password: String): String {
+    override suspend fun login(username: String, password: String): String = withContext(ioDispatcher) {
         val session = apiService.login(username, password)
 
         // TODO validate session
         // Mock user id = 4
         saveSession("4", session.token)
 
-        return session.token
+        session.token
     }
 
-    override fun registerAsync(username: String, password: String): Deferred<String> = GlobalScope.async {
+    override suspend fun registerAsync(username: String, password: String): String = withContext(ioDispatcher) {
         val session = apiService.register(username, password)
 
         // TODO validate session
@@ -40,16 +41,20 @@ class AuthRepositoryImpl @Inject constructor(
         /***
          * Async for any server-side verification
          */
-        val id = sharedPreferences.getString(PREF_SESSION_ID, "")
-        val token = sharedPreferences.getString(PREF_SESSION_TOKEN, "")
-        return if (id.isNullOrEmpty() || token.isNullOrEmpty()) {
-            null
-        } else {
-            SessionResponse(token, id)
+        try {
+            val id = sharedPreferences.getString(PREF_SESSION_ID, "")
+            val token = sharedPreferences.getString(PREF_SESSION_TOKEN, "")
+            return if (id.isNullOrEmpty() || token.isNullOrEmpty()) {
+                null
+            } else {
+                SessionResponse(token, id)
+            }
+        } catch (e: Exception) {
+            return null
         }
     }
 
-    override fun logoutAsync(): Deferred<Unit> = GlobalScope.async {
+    override suspend fun logoutAsync() = withContext(ioDispatcher) {
         db.userDao().clear()
         clearSession()
     }

@@ -21,6 +21,7 @@ class LoginViewModel @Inject constructor(
 
     override fun start() {
         super.start()
+        // TODO
     }
 
     fun login(username: String, password: String) {
@@ -28,7 +29,7 @@ class LoginViewModel @Inject constructor(
         viewModelScope.launch {
             try {
                 val token = authRepository.login(username, password)
-                if (token.isNullOrEmpty()) {
+                if (token.isEmpty()) {
                     _state.postValue(LoginState.Failed("unexpected error"))
                 } else {
                     _state.postValue(LoginState.Success)

@@ -10,14 +10,13 @@ import androidx.recyclerview.widget.RecyclerView
 class BaseRecyclerView : RecyclerView {
     private var mEmptyView: View? = null
 
-    constructor(context: Context) : super(context) {}
-    constructor(context: Context, @Nullable attrs: AttributeSet) : super(context, attrs) {}
+    constructor(context: Context) : super(context)
+    constructor(context: Context, @Nullable attrs: AttributeSet) : super(context, attrs)
     constructor(context: Context, @Nullable attrs: AttributeSet, defStyle: Int) : super(
         context,
         attrs,
         defStyle
-    ) {
-    }
+    )
 
     fun refreshEmptyView() {
         if (mEmptyView != null) {

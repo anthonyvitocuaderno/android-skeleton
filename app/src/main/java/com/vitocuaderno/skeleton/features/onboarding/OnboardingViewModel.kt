@@ -14,5 +14,6 @@ class OnboardingViewModel @Inject constructor() : BaseViewModel() {
 
     override fun start() {
         super.start()
+        // TODO
     }
 }

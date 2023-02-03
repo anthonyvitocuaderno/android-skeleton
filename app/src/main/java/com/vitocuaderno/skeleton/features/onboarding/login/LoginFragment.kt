@@ -3,7 +3,6 @@ package com.vitocuaderno.skeleton.features.onboarding.login
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.widget.TextView.OnEditorActionListener
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -39,15 +38,13 @@ class LoginFragment : BaseFragment<FragmentLoginBinding>() {
                 )
             }
 
-            tilPassword.editText!!.setOnEditorActionListener(
-                OnEditorActionListener { _, actionId, _ ->
-                    if (actionId == EditorInfo.IME_ACTION_DONE) {
-                        login()
-                        true
-                    }
-                    false
+            tilPassword.editText!!.setOnEditorActionListener { _, actionId, _ ->
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    login()
+                    true
                 }
-            )
+                false
+            }
         }
     }
 
