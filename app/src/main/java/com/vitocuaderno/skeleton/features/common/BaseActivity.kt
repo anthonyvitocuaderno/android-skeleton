@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.vitocuaderno.skeleton.features.main.MainActivity
 import com.vitocuaderno.skeleton.features.onboarding.OnboardingActivity
+import com.vitocuaderno.skeleton.features.splash.SplashActivity
 
 /**
  * Automatically initializes ViewDataBinding class for your activity.
@@ -45,6 +46,12 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
 
     protected fun launchOnboarding() {
         val intent = Intent(this, OnboardingActivity::class.java)
+        this.startActivity(intent)
+        this.finishAffinity()
+    }
+
+    protected fun launchSplash() {
+        val intent = Intent(this, SplashActivity::class.java)
         this.startActivity(intent)
         this.finishAffinity()
     }

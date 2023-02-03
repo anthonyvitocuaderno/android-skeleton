@@ -45,7 +45,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
                 Toast.makeText(this, "Please wait...", Toast.LENGTH_SHORT).show()
             }
             MainState.IsLoggedOut -> {
-                launchOnboarding()
+                launchSplash()
             }
             else -> {
                 // TODO
