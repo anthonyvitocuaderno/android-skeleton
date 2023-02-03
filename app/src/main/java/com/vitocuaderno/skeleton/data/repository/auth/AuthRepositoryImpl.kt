@@ -41,16 +41,16 @@ class AuthRepositoryImpl @Inject constructor(
         /***
          * Async for any server-side verification
          */
-        try {
+        return try {
             val id = sharedPreferences.getString(PREF_SESSION_ID, "")
             val token = sharedPreferences.getString(PREF_SESSION_TOKEN, "")
-            return if (id.isNullOrEmpty() || token.isNullOrEmpty()) {
+            if (id.isNullOrEmpty() || token.isNullOrEmpty()) {
                 null
             } else {
                 SessionResponse(token, id)
             }
         } catch (e: Exception) {
-            return null
+            null
         }
     }
 

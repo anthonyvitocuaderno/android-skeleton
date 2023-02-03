@@ -18,6 +18,7 @@ import com.vitocuaderno.skeleton.features.splash.SplashActivity
 abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
     abstract val viewModel: BaseViewModel
 
+    var compose = false
     lateinit var binding: B
 
     @LayoutRes
@@ -29,11 +30,13 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
 
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
 
-        binding = DataBindingUtil.setContentView(
-            this,
-            getLayoutId()
-        )
-        binding.lifecycleOwner = this
+        if (!compose) {
+            binding = DataBindingUtil.setContentView(
+                this,
+                getLayoutId()
+            )
+            binding.lifecycleOwner = this
+        }
 
         viewModel.start()
     }
