@@ -10,8 +10,8 @@ class MainPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
     override fun getItemCount(): Int = 5
 
     private val titles = arrayOf(
-        "Users",
         "Dummy",
+        "Users",
         "Dummy",
         "Dummy",
         "Menu"
@@ -19,7 +19,7 @@ class MainPagerAdapter(fa: FragmentActivity) : FragmentStateAdapter(fa) {
 
     override fun createFragment(position: Int): Fragment {
         val fragment = when (position) {
-            0 -> {
+            1 -> {
                 UsersFragment()
             } else -> {
                 DummyFragment()

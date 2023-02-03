@@ -71,8 +71,8 @@ private class PageKeyedRemoteMediator(
                     perPage = state.config.pageSize,
                     page = page.toInt()
                 )
-                val users = response.data.map { userResponse ->
-                    userResponse.toLocal()
+                val users = response.data.map { userData ->
+                    userData.toLocal()
                 }
                 val keys = db.userDao().insertAll(users)
                 if (keys.isEmpty()) {

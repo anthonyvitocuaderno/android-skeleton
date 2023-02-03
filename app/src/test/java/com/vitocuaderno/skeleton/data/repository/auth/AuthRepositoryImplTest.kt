@@ -6,6 +6,7 @@ import com.vitocuaderno.skeleton.data.local.AppDatabase
 import com.vitocuaderno.skeleton.data.remote.ApiService
 import com.vitocuaderno.skeleton.data.remote.models.SessionResponse
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Assert
 import org.junit.Before
@@ -32,7 +33,8 @@ class AuthRepositoryImplTest {
         subject = AuthRepositoryImpl(
             mockApi,
             mockDatabase,
-            mockSharedPrefs
+            mockSharedPrefs,
+            TestCoroutineDispatcher()
         )
     }
 

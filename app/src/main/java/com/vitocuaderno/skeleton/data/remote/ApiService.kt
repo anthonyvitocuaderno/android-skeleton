@@ -2,6 +2,7 @@ package com.vitocuaderno.skeleton.data.remote
 
 import com.vitocuaderno.skeleton.data.remote.models.PageResponse
 import com.vitocuaderno.skeleton.data.remote.models.SessionResponse
+import com.vitocuaderno.skeleton.data.remote.models.UserData
 import com.vitocuaderno.skeleton.data.remote.models.UserResponse
 import com.vitocuaderno.skeleton.utils.BASE_URL
 import okhttp3.OkHttpClient
@@ -49,7 +50,7 @@ interface ApiService {
 
     @GET("api/users/{id}")
     suspend fun getUser(
-        @Field("id") id: String
+        @Path("id") id: String
     ): UserResponse
 
     @GET("api/users")
@@ -57,5 +58,5 @@ interface ApiService {
         @Header("Authorization") token: String,
         @Query("page") page: Int,
         @Query("per_page") perPage: Int
-    ): PageResponse<UserResponse>
+    ): PageResponse<UserData>
 }
