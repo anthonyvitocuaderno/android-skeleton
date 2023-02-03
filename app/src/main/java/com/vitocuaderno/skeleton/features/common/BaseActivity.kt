@@ -1,5 +1,6 @@
 package com.vitocuaderno.skeleton.features.common
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.ActivityInfo
 import android.os.Bundle
@@ -21,6 +22,7 @@ abstract class BaseActivity<B : ViewDataBinding> : AppCompatActivity() {
     @LayoutRes
     abstract fun getLayoutId(): Int
 
+    @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
