@@ -31,7 +31,7 @@ abstract class BaseFragment<B : ViewDataBinding> : Fragment() {
             container,
             attachToParent()
         )
-        binding.lifecycleOwner = this
+        binding.lifecycleOwner = this.viewLifecycleOwner
         return binding.root
     }
 }
